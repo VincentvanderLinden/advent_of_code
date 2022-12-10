@@ -24,6 +24,6 @@ all_sacks %>%
   group_by(grp = ceiling(row_number()/3)) %>%
   summarise(l = Reduce(intersect, as.list(rucksack))) %>%
   ungroup %>%
-  inner_join(SEKALON) %>%
+  inner_join(letter_numbers) %>%
   select(n) %>%
   sum

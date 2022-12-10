@@ -1,30 +1,21 @@
-str <- "nppdvjthqldpwncqszvftbrmjlhg"#readr::read_file("/data/users/al9686/rommel/advent/q6.txt")
+str <- readr::read_file("q6.in")
 input <- strsplit(str,"")[[1]]  
 
-get_marker <- function(input){
-  a <- list()
-  i <- 1
-  
-  for(x in input){
-    if(i <= 4){
-      a <- append(a, x)
-      i = i + 1
-    }
-    else {
-      
-      if(x %in% a){
-        a <- list(x)
-        super_i = i + 1
-      }
-      else {
-        a <- append(a, x)
-        i = i + 1 
-      }
-      if(length(a) == 4){
-        return(super_i)
-      }
-    }
-    
+#Part 1----
+#Add all characters to a vector. If the unique tail (ooooh, I'm a unicorn!) equals 4, jump out of the loop
+get_marker <- function(input, no_of_unique_chars){
+  characters <- c()
+  loop_counter <- 1
+  for(char in input){
+    characters <- c(characters, char)
+    if (length(unique(tail(characters, no_of_unique_chars))) == no_of_unique_chars) return(loop_counter)
+    loop_counter <- loop_counter + 1
   }
 }
-get_marker(input)
+#Answer:
+get_marker(input, 4)
+
+#Part 2-----
+#Answer:
+get_marker(input, 14)
+

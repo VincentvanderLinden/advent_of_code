@@ -14,11 +14,11 @@ ruk <- function(rucksack){
 }
 
 #Answer:
-sum(sapply(readr::read_table('q3.in', col_names = "SJENKIE")$SJENKIE, ruk))
+sum(sapply(readr::read_table("q3.in", col_names = "SJENKIE")$SJENKIE, ruk))
 
 #Part 2----
-all_sacks <- fread('/data/users/al9686/rommel/advent/q3.txt', header = F, col.names = "rucksack")
-all_sacks$rucksack <- strsplit(all_sacks$rucksack, '')
+all_sacks <- fread("q3.in", header = F, col.names = "rucksack")
+all_sacks$rucksack <- strsplit(all_sacks$rucksack, "")
 #Answer:
 all_sacks %>%
   group_by(grp = ceiling(row_number()/3)) %>%

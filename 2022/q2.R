@@ -1,4 +1,4 @@
-input <- readr::read_delim('q2.in', delim = ' ', col_names = c("action", "reaction"))
+input <- readr::read_delim("q2.in", delim = " ", col_names = c("action", "reaction"))
 
 #Part 1----
 score_table <- data.frame (action = c(rep("A", 3), rep("B", 3), rep("C", 3)), 

@@ -32,8 +32,7 @@ stacks <- as.list(as.data.frame(stack_matrix, stringsAsFactors = F)) %>% unname 
 stacks <- lapply(stacks, rev)
 
 #Read instructions from second part of input file. fread because why not
-instructions <- data.table::fread(text = instructions, 
-                                  header = F,
+instructions <- data.table::fread(text = instructions, header = F,
                                   col.names = c("x", "no_of_boxes", "y", 
                                                 "from", "z", "to"))
 #Part 1----

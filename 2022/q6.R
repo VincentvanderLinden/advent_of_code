@@ -8,7 +8,7 @@ get_marker <- function(input, no_of_unique_chars){
   loop_counter <- 1
   for(char in input){
     characters <- c(characters, char)
-    if (length(unique(tail(characters, no_of_unique_chars))) == no_of_unique_chars) return(loop_counter)
+    if(length(unique(tail(characters, no_of_unique_chars))) == no_of_unique_chars) return(loop_counter)
     loop_counter <- loop_counter + 1
   }
 }

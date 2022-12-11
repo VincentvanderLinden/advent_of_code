@@ -1,4 +1,4 @@
-str <- readr::read_file("q6.in")
+str <- readr::read_file("q06.in")
 input <- strsplit(str,"")[[1]]  
 
 #Part 1----

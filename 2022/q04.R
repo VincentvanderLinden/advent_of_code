@@ -1,7 +1,7 @@
 library(data.table)
 library(dplyr)
 #Part 1----
-pairs <- fread("q4.in", header = F, col.names = c("a", "b"))
+pairs <- fread("q04.in", header = F, col.names = c("a", "b"))
 
 magic <- pairs %>%
   rowwise %>%

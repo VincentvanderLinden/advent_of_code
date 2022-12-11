@@ -1,4 +1,4 @@
-input <- readr::read_file('q1.in')
+input <- readr::read_file('q01.in')
 a <- lapply(lapply(Reduce(sum, lapply(strsplit(input, split = '\\n\\n'), strsplit, '\\n')), as.numeric), sum)
 
 #Part 1----

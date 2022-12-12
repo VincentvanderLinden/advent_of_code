@@ -9,6 +9,7 @@ matrix_from_txt <- function(txt){
   m <- t(matrix(unlist(strsplit(lines, "")), 
                 ncol = n_cols, 
                 nrow = n_rows))
+  class(m) <- "numeric"
   return(m)
 }
 
@@ -51,7 +52,6 @@ n_rows <- nrow(forest)
 res <- 0
 for(row in seq(n_rows)){
   for(col in seq(n_cols)){
-    #if (row == 3 & col == 2) browser()
     #Catch perimeters
     if(col %in% c(1, n_cols) | row %in% c(1, n_rows)){
       #Set variables to 0 for perimeters
@@ -85,8 +85,8 @@ for(row in seq(n_rows)){
         down <- min(which(forest[(row+1):n_rows, col] >= forest[row, col]))
       }
       else down <- n_rows-row
+      #Put the highest product in res
       res <- max(res, left*right*down*up)
-      
     }
     col <- col+1
   }

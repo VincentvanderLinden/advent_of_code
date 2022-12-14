@@ -16,7 +16,6 @@ input <- input %>%
          if_true = as.numeric(str_extract(if_true, "\\d+")), 
          if_false = as.numeric(str_extract(if_false, "\\d+")), 
          inspection_count = 0)
-                      worry_value = unlist(x$starting_items))
 
 round <- 1
 n_rounds <- 20

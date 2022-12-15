@@ -72,6 +72,12 @@ move_snake <- function(instructions, knots, n_knots) {
         move_knot(knot, dir, n_knots)
       }
     }
+    # ggsave(plt_knots(knots),
+    #        filename = paste0("q09_gif/000000", ifelse(row<10, paste0("000", row), 
+    #                                                   ifelse(row< 100, paste0("00", row), 
+    #                                                   ifelse(row<1000, paste0("0", row), 
+    #                                                   row))), ".png"), 
+    #        dpi = 72)
   }
 }
 
@@ -94,3 +100,15 @@ length(knot_result)
 knot_result <- list()
 move_snake(instructions, knots, 9)
 length(knot_result)
+
+#Bonus animation----
+#(enable the ggsave line on line 75 first and create a directory q09_gif in your working directory)
+#Then get a cup of coffee
+
+# library(magick, lib.loc = "/data/workspace/dime/pkg_prd/") #You won't need the lib.loc
+# library(magrittr)
+# list.files(path = 'q09_gif/', pattern = '*.png', full.names = TRUE) %>% 
+#   image_read() %>% # reads each path file
+#   image_join() %>% # joins image
+#   image_animate(fps = 25) %>% # animates, can opt for number of loops
+#   image_write("q09.gif")

@@ -11,3 +11,4 @@ sum(merge(input, score_table)$score)
 score_table$score <- c(3, 4, 8, 1, 5, 9, 2, 6, 7 )
 #Answer:
 sum(merge(input, score_table)$score)
+

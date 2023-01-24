@@ -14,14 +14,15 @@ scoring = {'A': {'X': 3, 'Y': 6, 'Z': 0},
 
 #ANSWER PART 1:
 #Translate action list using scoring dict, adding the outcome score + the base score
-sum([scoring[line['action']][line['reaction']] + 
-     base_score[line['reaction']] 
-     for line in action_reaction])
+answer1 = sum([scoring[line['action']][line['reaction']] +
+               base_score[line['reaction']]
+               for line in action_reaction])
+print(f"answer 1: {answer1}")
 
 #Part 2
 #X means you need to lose, Y means you need to end the round in a draw, and Z means you need to win
-action_to_take = {'X': {'A': 'Z', 'B': 'X', 'C': 'Y'}, 
-                  'Y': {'A': 'X', 'B': 'Y', 'C': 'Z'}, 
+action_to_take = {'X': {'A': 'Z', 'B': 'X', 'C': 'Y'},
+                  'Y': {'A': 'X', 'B': 'Y', 'C': 'Z'},
                   'Z': {'A': 'Y', 'B': 'Z', 'C': 'X'},
                  }
 
@@ -29,8 +30,8 @@ action_to_take = {'X': {'A': 'Z', 'B': 'X', 'C': 'Y'},
 #Determine which action will be taken and use that to calculate score
 #using the scoring table defined before
 score = 0
-for line in action_reaction: 
+for line in action_reaction:
     action_taken = action_to_take[line['reaction']][line['action']]
-    score += scoring[line['action']][action_taken] + base_score[action_taken] 
+    score += scoring[line['action']][action_taken] + base_score[action_taken]
 #ANSWER PART 2:
-score
+print(f"answer 2: {score}")

@@ -1,3 +1,6 @@
+import os
+#os.chdir('aoc')
+
 with open('q03.in') as f:
     input = f.read().splitlines()
 split_strings = []
@@ -19,7 +22,8 @@ letters = [*map(chr, range(97, 123))] + [*map(chr, range(65, 91))]
 scoring_list = dict([*zip(letters, [*range(1,53)])])
 
 #ANSWER PART 1
-sum([scoring_list[letter] for letter in matching_letters])
+answer1 = sum([scoring_list[letter] for letter in matching_letters])
+print(f"answer 1: {answer1}")
 
 #Part two
 #Split in groups of three
@@ -34,4 +38,5 @@ for letter in matching_letters:
     score += scoring_list[letter.pop()]
 
 #ANSWER PART 2
-print(score)
+print(f"answer 2: {score}")
+

@@ -27,6 +27,7 @@ def move_tail(x, y, head_x, head_y):
             # If it is 2 away on the x-axis, it will snap to the same y-axis as the head
             # Nasty case where previous tail went 2x2 away due to rope behavior
             if (abs(head_x - x) == 2) and (abs(head_y - y) == 2):
+                # Move it a bit closer
                 x = int(x + (x - head_x) / 2)
                 y = int(y + (y - head_y) / 2)
             elif abs(head_x - x) == 2:

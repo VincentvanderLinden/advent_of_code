@@ -1,5 +1,4 @@
 import re
-from timer import timer
 
 with open('q04.in') as f:
     input = f.read().splitlines()

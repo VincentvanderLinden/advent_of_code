@@ -1,9 +1,9 @@
 import re
 
 with open('q04.in') as f:
-    input = f.read().splitlines()
+    src = f.read().splitlines()
 
-assignment_pairs = [line.split(',') for line in input]
+assignment_pairs = [line.split(',') for line in src]
 
 # Initialize answers
 containing_pairs = 0

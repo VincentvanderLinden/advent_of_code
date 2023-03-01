@@ -2,11 +2,11 @@ import numpy as np
 import math
 
 with open('q10.in') as file:
-    input = file.read().splitlines()
+    src = file.read().splitlines()
 # Create instruction list for better handling: amount of addx (0 for noop) and amount of cycles (1 or 2)
 # Less logic needed in the following loop(s) by doing it this way
 instructions = []
-for line in input: 
+for line in src: 
     if line == 'noop':
         # Put amount and number of cycles
         instructions.append((0, 1))

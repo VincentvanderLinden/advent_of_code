@@ -1,7 +1,7 @@
 with open('q06.in') as file: 
-    input = file.read()
+    src = file.read()
 # Create a list of the characters in the datastream
-datastream = [char for char in input]
+datastream = [char for char in src]
 
 # Function to get markers
 def get_marker(datastream, no_of_unique_chars):

@@ -1,8 +1,8 @@
 # Open file and split on double returns
 with open('q01.in') as f:
-    input = f.read().split("\n\n")
+    src = f.read().split("\n\n")
 # Split the lines into calories per elf
-elfs_char = [str.split(line, "\n") for line in input]
+elfs_char = [str.split(line, "\n") for line in src]
 # Convert to integers
 elfs_calories = [[int(calories) for calories in elf] for elf in elfs_char]
 # Get the sums of calories by traversing the elf list

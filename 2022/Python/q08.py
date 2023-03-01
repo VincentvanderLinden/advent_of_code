@@ -1,9 +1,9 @@
 import numpy as np
 
 with open('q08.in') as file:
-    input = file.read().splitlines()
+    src = file.read().splitlines()
 # Create lines of trees and turn into ndarray for fun
-forest_input = np.array([[int(tree) for tree in row] for row in input])
+forest_input = np.array([[int(tree) for tree in row] for row in src])
 
 
 # Calculate scenic scores

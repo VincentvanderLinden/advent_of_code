@@ -1,9 +1,9 @@
 with open('q02.in') as f:
-    input = f.read().splitlines()
+    src = f.read().splitlines()
 
 # Rock: X, Paper: Y, Scissors: Z
 # Create dict of action: reaction
-action_reaction = [{'action': line[0], 'reaction': line[2]} for line in input]
+action_reaction = [{'action': line[0], 'reaction': line[2]} for line in src]
 # Base scores for picking a reaction
 base_score = {'X': 1, 'Y': 2, 'Z': 3}
 # Create scoring dict

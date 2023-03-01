@@ -1,7 +1,7 @@
 import re
 
 with open('q07.in') as file:
-    input = file.readlines()
+    src = file.readlines()
 
 # Use list to track current position in the file system
 # and to make sure you can add file sizes to parents
@@ -9,7 +9,7 @@ current_dir = []
 # Use a dict to store file sizes per directory
 file_system = {}
 
-for line in input:
+for line in src:
     # Throw away garbage
     if line.startswith('$ ls') | line.startswith('dir'):
         continue

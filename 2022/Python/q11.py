@@ -4,9 +4,9 @@ from copy import deepcopy
 
 # Open File
 with open('q11.in') as file:
-    input = file.read().split('\n\n')
+    src = file.read().split('\n\n')
 # Seperate monkeys
-monkeys = [line.split('\n') for line in input]
+monkeys = [line.split('\n') for line in src]
 # Create the magnificent monkeytown as a list
 monkeytown = []
 

@@ -1,7 +1,7 @@
 import re
 
 with open('q09.in') as file:
-    input = file.read().splitlines()
+    src = file.read().splitlines()
 
 
 # Head moving function
@@ -52,7 +52,7 @@ head_x, head_y, tail_x, tail_y = 0, 0, 0, 0
 # Create set for tail positions
 tail_visits = set()
 
-for instruction in input:
+for instruction in src:
     direction, amount = instruction[0], int(re.findall(r"\d+", instruction)[0])
     for _ in range(amount):
         # Move the head
@@ -72,7 +72,7 @@ tail_positions = [(0, 0) for _ in range(9)]
 # Create set for tail positions
 tail_visits = set()
 
-for instruction in input:
+for instruction in src:
     direction, amount = instruction[0], int(re.findall(r"\d+", instruction)[0])
     for _ in range(amount):
         # Move the head

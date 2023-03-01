@@ -1,9 +1,9 @@
 with open('q03.in') as f:
-    input = f.read().splitlines()
+    src = f.read().splitlines()
 split_strings = []
 
 # Create sets from first and second half strings
-for line in input:
+for line in src:
     half_split = int(len(line)/2)
     left_half = set(line[:half_split])
     right_half = set(line[half_split:])
@@ -25,7 +25,7 @@ print(f"answer 1: {answer1}")
 
 # Part two
 # Split in groups of three
-three_lines = [input[i:i + 3] for i in range(0, len(input), 3)]
+three_lines = [src[i:i + 3] for i in range(0, len(src), 3)]
 # Create list of sets within the groups
 sets = [[set(item) for item in group] for group in three_lines]
 # Get the matching letter within each group of three

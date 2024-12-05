@@ -50,8 +50,7 @@ for row in range(len(m) - 2):
             # S . S
             lr = m[row, col] + m[row+1, col+1] + m[row+2, col+2]
             rl = m[row, col+2] + m[row+1, col+1] + m[row+2, col]
-            if lr in ['MAS', 'SAM'] and rl in ['MAS', 'SAM']: 
-                res+=1
+            res+= lr in ['MAS', 'SAM'] and rl in ['MAS', 'SAM']
                 
 print(f"Question 2: {res}")
     

@@ -18,7 +18,7 @@ class Maze:
         
     def __getitem__(self, row) -> list:
         return self.maze[row]
-    
+      
     def __len__(self): 
         return len(self.maze)
         
@@ -32,7 +32,7 @@ class Maze:
 class Guard: 
     """
     The guard class. 
-    
+     
     Methods: 
     """
     def __init__(self, name: str): 

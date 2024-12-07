@@ -17,9 +17,9 @@ for line in inp:
 print(f"Part 1: {R}")
 
 
-# Brute forcing in batches             
+# Brute forcing in batches, running 100 at a time </shame>             
 R = 0
-for line in inp[800:]: 
+for line in inp[:100]: 
     result = int(line.split(':')[0])
     items = [int(l) for l in line.split(':')[1].split()]
     res = [items[0]]
@@ -31,4 +31,4 @@ for line in inp[800:]:
 
     if result in res[-1*(3**i):]: 
         R+=result
-print(R)
+print(f"Part 2 (PARTIAL): {R}")

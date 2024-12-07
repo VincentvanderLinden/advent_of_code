@@ -1,5 +1,4 @@
 import numpy as np
-from time import sleep
 
 with open('q06.in') as f: 
     inp = f.readlines()
@@ -68,10 +67,17 @@ class Guard:
         row, col = self.position
         self.coordinates_touched = set() 
         self.coordinates_touched.add(tuple(self.position))
-
+        self.obstacles_hit = set()
+        self.stuck_in_loop = False
+        self.new_obstacle_row = 0
+        self.new_obstacle_col = 0
+        
     # Check if there is an obstacle coming up
     def obstacle_found(self, direction: str): 
         next_row, next_col = self.position + self.directions[direction].get('move')
+        if (next_row, next_col, self.current_direction) in self.obstacles_hit: 
+            self.stuck_in_loop = True
+        self.obstacles_hit.add((next_row, next_col, self.current_direction))
         return True if self.maze[next_row][next_col] == '#' else False
     
     # Check if the guard found the exit   
@@ -90,13 +96,19 @@ class Guard:
         # Keep track of the old position
         old_row, old_col = self.position 
         
+        if self.stuck_in_loop: 
+            self.in_the_maze = False
+            
         # Run away if exit is found
         if self.exit_found(self.current_direction): 
             self.in_the_maze = False
+        
+        
             
         # Change direction is obstacle found
         elif self.obstacle_found(self.current_direction): 
             self.current_direction = self.directions[self.current_direction].get('next_dir')
+        
             
         # Actual guard move
         else:  
@@ -106,9 +118,10 @@ class Guard:
             # Determine new position and store it in the coordinates_touched
             new_row, new_col = self.position
             self.coordinates_touched.add(tuple(self.position))
+            
             # Modify the maze for printing purposes
-            self.maze[old_row][old_col] = 'X'
-            self.maze[new_row][new_col] = self.directions[self.current_direction].get('icon')
+            # self.maze[old_row][old_col] = 'X'
+            # self.maze[new_row][new_col] = self.directions[self.current_direction].get('icon')
             
     # Auto walk through the maze
     def clear_maze(self): 
@@ -126,5 +139,19 @@ bob = Guard(name='Bob')
 bob.enter_maze(maze)
 bob.clear_maze()
 
-print(f"Question 1: {bob.count_moves()}")
+print(f"Question 1: {bob.count_moves()}", flush=True)
 
+res = 0
+for i in range(len(maze_input)): 
+    for j in range(len(maze_input[0])): 
+        new_maze = maze_input.copy()
+        if new_maze[i][j] == '.': 
+            new_maze[i][j] = '#'  
+        maze = Maze(new_maze, name='The Maze')
+        bob = Guard(name='Bob')
+        bob.enter_maze(maze)
+        bob.clear_maze()
+        res+=bob.stuck_in_loop
+        print(i, j, res, flush=True)
+
+print(f"Question 2: {res}")

@@ -44,7 +44,7 @@ vignettes/*.pdf
 *.in
 
 # Python stuff
-**/__pycache__/
+**/__pycache__
 .pyc
 .vscode
 .venv

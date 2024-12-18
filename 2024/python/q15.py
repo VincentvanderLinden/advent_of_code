@@ -98,7 +98,10 @@ class Robot:
                 l2 = None
                 new_l2 = None
                 col2move = None
-                if self.wh[r+1][c] == '[': 
+                if self.wh[r+1][c] in ['[', ']']: 
+                    # find bottom edges
+                    
+                    
                     col2move = c + 1
                     l2 = [row[col2move] for row in self.wh]
                     new_l2 = self.transform_list(l=l2, pos=r)

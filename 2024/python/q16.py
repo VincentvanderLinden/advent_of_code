@@ -46,22 +46,14 @@ def dijkstra(start, end):
         if maze[nx][ny] != '#':
             heapq.heappush(pq, (score + move_cost, nx, ny, direction, path + [(nx, ny, direction)]))
         
-        # Rotate clockwise
+        # Rotate 90
         new_direction = {'E': 'S', 'S': 'W', 'W': 'N', 'N': 'E'}[direction]
         heapq.heappush(pq, (score + rotation_cost, x, y, new_direction, path + [(x, y, new_direction)]))
         
-        # Rotate counterclockwise
+        # Rotate rotate -90
         new_direction = {'E': 'N', 'N': 'W', 'W': 'S', 'S': 'E'}[direction]
         heapq.heappush(pq, (score + rotation_cost, x, y, new_direction, path + [(x, y, new_direction)]))
 
 min_score, path = dijkstra(start, end)
 
-# Print the path on the maze using 'O' as the reindeer
-for i in range(len(maze)):
-    row = list(maze[i])
-    for j in range(len(row)):
-        if (i,j) in [(x, y) for x, y, d in path]:
-            row[j] = 'O'
-    print("".join(row))
-
-print(f"The lowest score a Reindeer could possibly get is {min_score}.")
+print(f"Answer 1: {min_score}.")

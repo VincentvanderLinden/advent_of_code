@@ -26,13 +26,11 @@ while pointer < len(program):
         B = combos[combo] % 8
         combos[5] = B
     elif op == 3: 
-
         if A == 0: 
             next
         else: 
             jump = True
             pointer = combo
-
     elif op == 4: 
         B = B ^ C
         combos[5] = B
@@ -48,8 +46,7 @@ while pointer < len(program):
     if not jump: 
         pointer += 2
     
-print(A)
-print(f"Output: {','.join(output)}") 
+
 
 
 

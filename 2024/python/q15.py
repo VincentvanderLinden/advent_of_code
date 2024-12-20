@@ -1,6 +1,5 @@
 import numpy as np
 from time import sleep
-import os
 
 
 with open('q15.in') as f:
@@ -153,45 +152,45 @@ for i in range(len(wh)):
 print(f"Answer 1: {p1}")
 
 
-with open('q15.in') as f:
-    warehouse, instructions = f.read().split('\n\n')
+# with open('q15.in') as f:
+#     warehouse, instructions = f.read().split('\n\n')
 
-wh_raw = [list(line) for line in warehouse.split('\n')]
-instructions = instructions.replace('\n', '')
+# wh_raw = [list(line) for line in warehouse.split('\n')]
+# instructions = instructions.replace('\n', '')
 
-wh = Warehouse(wh_raw)
+# wh = Warehouse(wh_raw)
 
-FAT_WAREHOUSE = []
+# FAT_WAREHOUSE = []
 
-for row in wh: 
-    r = []
-    for col in row: 
-        if col == '#': 
-            r += ["#"] * 2
-        elif col == 'O': 
-            r += ['[', ']']
-        elif col == '.': 
-            r += ['.'] * 2
-        elif col == '@': 
-            r += ['@', '.']
-    FAT_WAREHOUSE.append(r)      
+# for row in wh: 
+#     r = []
+#     for col in row: 
+#         if col == '#': 
+#             r += ["#"] * 2
+#         elif col == 'O': 
+#             r += ['[', ']']
+#         elif col == '.': 
+#             r += ['.'] * 2
+#         elif col == '@': 
+#             r += ['@', '.']
+#     FAT_WAREHOUSE.append(r)      
 
-wh = Warehouse(FAT_WAREHOUSE)
-robot = Robot(name='Dana', wh=wh, starting_point=wh.find_robot())
+# wh = Warehouse(FAT_WAREHOUSE)
+# robot = Robot(name='Dana', wh=wh, starting_point=wh.find_robot())
 
-j = 0
-for i in instructions[:6]: 
-    print(f"Step {j}\n{i}")
-    robot.move(i)
-    print(wh)
-    j += 1
+# j = 0
+# for i in instructions[:6]: 
+#     print(f"Step {j}\n{i}")
+#     robot.move(i)
+#     print(wh)
+#     j += 1
 
 
-p2 = 0 
+# p2 = 0 
 
-for i in range(len(wh)): 
-    for j in range(len(wh[0])): 
-        if wh[i][j] == 'O': 
-            p2 += 100*i + j
+# for i in range(len(wh)): 
+#     for j in range(len(wh[0])): 
+#         if wh[i][j] == 'O': 
+#             p2 += 100*i + j
 
-print(f"Answer 2: {p2}")
+# print(f"Answer 2: {p2}")

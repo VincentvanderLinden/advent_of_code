@@ -46,7 +46,7 @@ while pointer < len(program):
     if not jump: 
         pointer += 2
     
-
+print(f"Answer 1: {','.join(output)}")
 
 
 

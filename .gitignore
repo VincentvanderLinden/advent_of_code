@@ -42,6 +42,7 @@ vignettes/*.pdf
 
 # Input files
 *.in
+*.sample
 
 # Python stuff
 **/__pycache__

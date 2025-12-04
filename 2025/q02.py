@@ -6,7 +6,6 @@ with open('q02.in') as f:
 answer1 = 0
 answer2 = 0
 
-
 for line in input: 
     a, b = map(int, line.split('-'))
     for i in range(a, b+1): 

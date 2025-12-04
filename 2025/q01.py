@@ -33,4 +33,5 @@ for line in input:
     else:
         answer2 += (pos+n)//100
     pos = (pos+n)%100
+    
 print(f"Answer 2: {answer2}")

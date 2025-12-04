@@ -1,5 +1,3 @@
-import itertools
-
 with open("q03.in") as f: 
     input = f.read().splitlines()
     
@@ -36,10 +34,15 @@ def part2(input: list) -> int:
         search_window = len(bank) - num_of_batteries + 1
         
         while len(joltage) < num_of_batteries: 
-        
+            
+            # Find highest number from possible numbers
             high_ix = bank.index(max(bank[:search_window]))
             joltage += bank[high_ix]
+            
+            # Turn the bank into remaining batteries
             bank = bank[high_ix+1:]
+            
+            # Determine new search window
             search_window = len(bank) - num_of_batteries + len(joltage) + 1
         
         result += int(joltage)

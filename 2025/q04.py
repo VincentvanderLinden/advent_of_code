@@ -1,11 +1,11 @@
 from utils import read_matrix_from_file, FancyMatrix
 
+
 maze_list = read_matrix_from_file(filename='q04.in')
 m = FancyMatrix(maze_input=maze_list)
 
 # N, NE, E, SE, S, SW, W, NW
 DIRS = [(-1,0), (-1,1), (0,1), (1,1), (1,0), (1,-1), (0,-1), (-1,-1)]
-
 
 def has_less_than_x_neighbours(maze: list[list], 
                                coordinate: tuple, 
@@ -21,8 +21,7 @@ def has_less_than_x_neighbours(maze: list[list],
                 neighbours += 1
 
     return True if neighbours < x else False
-    
-    
+
 
 # Part 1
 answer1 = 0
@@ -57,9 +56,9 @@ while paper_can_be_removed:
     if len(paper_to_remove) == 0:
         paper_can_be_removed = False 
     
-    # Update matrix    
+    # Update maze    
     for coord in paper_to_remove: 
-        m[coord[0]][coord[1]] = 'x'                
+        m[coord[0]][coord[1]] = '.'          
 
 print(f"Answer2: {answer2}")
 
